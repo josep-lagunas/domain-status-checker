@@ -18,4 +18,8 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="output_files" />
+    </ItemGroup>
+
 </Project>

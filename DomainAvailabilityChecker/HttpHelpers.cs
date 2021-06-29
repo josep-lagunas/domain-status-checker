@@ -49,8 +49,8 @@ namespace DomainAvailabilityChecker
 
             if (retries >= MaxRequestRetries)
             {
-                Console.WriteLine(
-                    $"Max requests retries ({retries}) reached, {domain} will be skipped.");
+                //Console.WriteLine(
+                //    $"Max requests retries ({retries}) reached, {domain} will be skipped.");
                 jobject = default;
             }
             else

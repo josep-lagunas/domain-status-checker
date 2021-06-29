@@ -68,7 +68,7 @@ namespace DomainAvailabilityChecker
             Helpers.LogFreeDomainCount(freeDomainsCount);
             Helpers.LogTakenDomainCount(takenDomainsCount);
             Helpers.LogTotalDomainsTested(0);
-            Helpers.WriteTextTo(3, 2, "Testing:");
+            Helpers.WriteTextTo(3, 1, "Testing:");
             while (_domainsQueue.Count > 0)
             {
                 while (!_flag || _domainsQueue.Count == 0)
