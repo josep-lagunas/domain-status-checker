@@ -15,7 +15,7 @@ namespace DomainAvailabilityChecker
         {
             OffsetTop = Console.CursorTop;
             _previousCheckedDomain = string.Empty;
-            AddScrollOffset();
+            //AddScrollOffset();
         }
 
         private static void AddScrollOffset()
@@ -71,14 +71,14 @@ namespace DomainAvailabilityChecker
         internal static void LogTestedDomain(string domain)
         {
             var clearStr = new string(' ', _previousCheckedDomain.Length);
-            WriteTextTo(12, 1, clearStr);
+            WriteTextTo(15, 1, clearStr);
             _previousCheckedDomain = domain;
-            WriteTextTo(12, 1, domain, ConsoleColor.DarkYellow);
+            WriteTextTo(15, 1, domain, ConsoleColor.DarkYellow);
         }
 
         internal static void LogFreeDomainCount(int count)
         {
-            WriteTextTo(5, 3, $"Total Free Domains found  : {count}", ConsoleColor.Green);
+            WriteTextTo(5, 3, $"Total Free Domains found  : {count}", ConsoleColor.DarkGreen);
         }
 
         internal static void LogTakenDomainCount(int count)

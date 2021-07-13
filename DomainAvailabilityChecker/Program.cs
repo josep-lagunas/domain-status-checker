@@ -8,7 +8,7 @@ namespace DomainAvailabilityChecker
     internal static partial class Program
     {
         private static string _outputFilePath;
-        private const string InputFileRelativePrefix = "../../..";
+        private const string InputFileRelativePrefix = "/input";
         private const string OutputResultsFileRelativePrefix = "../../../output_files";
         private const string InputFileName = "domain-names.txt";
         private const bool LogAnyStatus = true;
@@ -28,8 +28,10 @@ namespace DomainAvailabilityChecker
             EnableFlag();
 
             //start reading input file and queueing
+            var filePath = $"{InputFileRelativePrefix}/{InputFileName}";
+            Console.WriteLine(filePath);
             Helpers.ReadFileLine(
-                $"{InputFileRelativePrefix}/{InputFileName}",
+                filePath,
                 _domainsQueue.Enqueue,
                 () =>
                 {
@@ -52,7 +54,7 @@ namespace DomainAvailabilityChecker
             _flagLock = new object();
 
             _domainsQueue = new Queue<string>();
-
+                
             _stream = File.Open(_outputFilePath, FileMode.OpenOrCreate, FileAccess.Write,
                 FileShare.Read);
             _writer = new StreamWriter(_stream) {AutoFlush = true};
@@ -68,7 +70,7 @@ namespace DomainAvailabilityChecker
             Helpers.LogFreeDomainCount(freeDomainsCount);
             Helpers.LogTakenDomainCount(takenDomainsCount);
             Helpers.LogTotalDomainsTested(0);
-            Helpers.WriteTextTo(3, 1, "Testing:");
+            Helpers.WriteTextTo(3, 1, "🔥 Testing:", ConsoleColor.White);
             while (_domainsQueue.Count > 0)
             {
                 while (!_flag || _domainsQueue.Count == 0)

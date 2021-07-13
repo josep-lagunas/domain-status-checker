@@ -13,13 +13,16 @@
     <ItemGroup>
       <None Remove="swahili-words.csv" />
       <None Remove="swahili-words-domain-candidates.csv" />
-      <None Update="domain-names.txt">
+      <None Update="docker-compose.yml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="output_files" />
+      <None Remove="input\domain-names.txt" />
+      <Content Include="input\domain-names.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
